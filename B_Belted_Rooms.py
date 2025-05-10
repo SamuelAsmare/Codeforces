@@ -1,13 +1,16 @@
-def check(s,i,j):
-    if (s[i] != s[j]):
-            return False
-    i+=1
-    j-=1
-    if (i<j):
-        return check(s,i,j) 
-    return True      
-s= "samimas"
-i=0
-j=len(s)-1
-res=check(s,i,j)
-print(res)
+from typing import List
+from collections import defaultdict
+class Solution:
+    def numEquivDominoPairs(self, dominoes: List[List[int]]) -> int:
+        dic=defaultdict(int)
+        counter=0
+        for i,j in dominoes:   
+            dic[tuple(sorted((i,j)))]+=1
+        print(dic)
+        for items in dic:
+            counter+=(dic[items]-1)
+        return counter
+sol=Solution()
+arr=[[2,1],[3,4],[5,6],[1,2]]
+print(sol.numEquivDominoPairs(arr))
+
