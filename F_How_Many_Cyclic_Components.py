@@ -21,4 +21,3 @@ for i in graph:
             ans +=1
         
 print (ans)
-
